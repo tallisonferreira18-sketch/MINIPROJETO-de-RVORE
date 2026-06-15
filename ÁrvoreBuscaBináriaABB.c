@@ -61,3 +61,13 @@ int inserir (t_arvore *tree, t_elemento item) {
     
     return ok;
 }
+
+// Esvaziar a árvore -- Igor Marinho
+void esvaziar (t_arvore *tree) {
+    if (*tree) {
+        esvaziar(&((*tree)->esq));
+        esvaziar(&((*tree)->dir));
+        free(*tree);
+        *tree = NULL;
+    }
+}
