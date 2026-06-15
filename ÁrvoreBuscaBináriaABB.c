@@ -71,3 +71,53 @@ void esvaziar (t_arvore *tree) {
         *tree = NULL;
     }
 }
+
+t_no* sucessor(t_no *no) {
+    while (no != NULL && no->esq != NULL)
+        no = no->esq;
+
+    return no;
+}
+
+int remover(t_arvore *tree, int rgm) {
+
+    if (*tree == NULL)
+        return 0; // não encontrou
+
+    if (rgm < (*tree)->dado.rgm)
+        return remover(&((*tree)->esq), rgm);
+
+    if (rgm > (*tree)->dado.rgm)
+        return remover(&((*tree)->dir), rgm);
+
+        printf("Removendo:\n");
+        printf("RGM: %d\n", (*tree)->dado.rgm);
+        printf("Nome: %s\n", (*tree)->dado.nome);
+
+    if ((*tree)->esq == NULL && (*tree)->dir == NULL) {
+        free(*tree);
+        *tree = NULL;
+    }
+
+    else if ((*tree)->esq == NULL) {
+        t_no *aux = *tree;
+        *tree = (*tree)->dir;
+        free(aux);
+    }
+
+    else if ((*tree)->dir == NULL) {
+        t_no *aux = *tree;
+        *tree = (*tree)->esq;
+        free(aux);
+    }
+
+    else {
+        t_no *aux = sucessor((*tree)->dir);
+
+        (*tree)->dado = aux->dado;
+
+        remover(&((*tree)->dir), aux->dado.rgm);
+    }
+
+    return 1;
+}
