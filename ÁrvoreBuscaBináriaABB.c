@@ -71,3 +71,16 @@ void esvaziar (t_arvore *tree) {
         *tree = NULL;
     }
 }
+
+t_no* pesquisar(t_arvore tree, int rgm) {
+    if (tree == NULL)
+        return NULL;
+
+    if (rgm == tree->dado.rgm)
+        return tree;
+
+    if (rgm < tree->dado.rgm)
+        return pesquisar(tree->esq, rgm);
+
+    return pesquisar(tree->dir, rgm);
+}
