@@ -121,3 +121,16 @@ int remover(t_arvore *tree, int rgm) {
 
     return 1;
 }
+
+t_no* buscar(t_arvore tree, int rgm) {
+    if (tree == NULL)
+        return NULL;
+
+    if (rgm < tree->dado.rgm)
+        return buscar(tree->esq, rgm);
+
+    if (rgm > tree->dado.rgm)
+        return buscar(tree->dir, rgm);
+
+    return tree;
+}
