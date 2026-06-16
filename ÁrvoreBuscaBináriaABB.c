@@ -112,7 +112,8 @@ int main() {
     char confirma;
 
     do {
-        printf("Selecione uma opcao (apenas numeros):\n 1 - Inserir\n 2 - Remover um no\n 3 - Pesquisar\n 4 - Esvaziar arvore\n 5 - Exibir a arvore\n 0 - Sair\n");
+        printf("             EDITOR DE ARVORE\n");
+        printf("\n 1 - INSERIR\n 2 - REMOVER UM NO\n 3 - PESQUISARr\n 4 - ESVAZIAR ARVORE\n 5 - EXIBIR A ARVORE\n 0 - SAIR\n");
         printf("-----------------------------\n");
         printf("Opcao: ");
         scanf("%d", &opcao);
