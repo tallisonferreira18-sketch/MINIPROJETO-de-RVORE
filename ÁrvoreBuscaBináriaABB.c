@@ -115,7 +115,7 @@ int main() {
         printf("             EDITOR DE ARVORE\n");
         printf("\n 1 - INSERIR\n 2 - REMOVER UM NO\n 3 - PESQUISARr\n 4 - ESVAZIAR ARVORE\n 5 - EXIBIR A ARVORE\n 0 - SAIR\n");
         printf("-----------------------------\n");
-        printf("Opcao: ");
+        printf("       DIGITE SUA OPCAO: ");
         scanf("%d", &opcao);
 
         switch (opcao) {
