@@ -61,7 +61,14 @@ int inserir (t_arvore *tree, t_elemento item) {
     
     return ok;
 }
-
+//ian, mostrar a arvore
+void MostrarEmOrdem(t_arvore tree) {
+    if (tree != NULL) {
+        MostrarEmOrdem(tree->esq);
+        printf("Rgm: %d | Nome: %s\n", tree->dado.rgm, tree->dado.nome);
+        MostrarEmOrdem(tree->dir);
+    }
+}
 // Esvaziar a árvore -- Igor Marinho
 void esvaziar (t_arvore *tree) {
     if (*tree) {
